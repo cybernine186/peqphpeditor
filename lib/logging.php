@@ -8,7 +8,7 @@ function logSQL ($query) {
     $user = 'Guest';
   }
   
-  $log = sprintf("%s, %s, %s, %s, %s", date('Y-m-d'), date('G:i:s'), $user, getIP(), $query);
+  $log = sprintf("%s, %s, %s, %s, %s\r\n", date('Y-m-d'), date('G:i:s'), $user, getIP(), $query);
 
   if ($logging == 1) {
     checkLogDir();
@@ -20,7 +20,7 @@ function logSQL ($query) {
       echo "Unable to open the log file ($log_file)! Make sure the file is readable by your webserver.";
       exit;
     }
-    if (!fwrite($handle, "$query; -- $log\r\n")) {
+    if (!fwrite($handle, $log)) {
       echo "Could not write to the log file ($log_file)! Make sure the file is writeable by your webserver.";
       exit;
     }
