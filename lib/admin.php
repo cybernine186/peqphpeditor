@@ -133,7 +133,7 @@ exit;
 function list_users() {
   global $mysql;
   
-  $query = "SELECT * FROM peq_admin";
+  $query = "SELECT * FROM `peq_admin`";
   $results = $mysql->query_mult_assoc($query);
 
   if ($results) {
@@ -148,7 +148,7 @@ function user_info() {
   global $mysql;
   $id = $_GET['id'];
   
-  $query = "SELECT * FROM peq_admin WHERE id=$id";
+  $query = "SELECT * FROM `peq_admin` WHERE id=$id";
   $result = $mysql->query_assoc($query);
   
   return $result;
@@ -160,7 +160,7 @@ function insert_user() {
   $password = md5($_POST['password']);
   $administrator = $_POST['administrator'];
   
-  $query = "INSERT INTO peq_admin SET login=\"$login\", password=\"$password\", administrator=$administrator";
+  $query = "INSERT INTO `peq_admin` SET login=\"$login\", password=\"$password\", administrator=$administrator";
   $mysql->query_no_result($query);
 }
 
@@ -172,10 +172,10 @@ function update_user() {
   
   if ($_POST['password'] != '') {
     $password = md5($_POST['password']);
-    $query = "UPDATE peq_admin SET login=\"$login\", password=\"$password\", administrator=$administrator WHERE id=$id";
+    $query = "UPDATE `peq_admin` SET login=\"$login\", password=\"$password\", administrator=$administrator WHERE id=$id";
   }
   else {
-    $query = "UPDATE peq_admin SET login=\"$login\", administrator=$administrator WHERE id=$id";
+    $query = "UPDATE `peq_admin` SET login=\"$login\", administrator=$administrator WHERE id=$id";
   }
   $mysql->query_no_result($query);
 }
@@ -184,7 +184,7 @@ function delete_user() {
   global $mysql;
   $id = $_GET['id'];
   
-  $query = "DELETE FROM peq_admin WHERE id=$id";
+  $query = "DELETE FROM `peq_admin` WHERE id=$id";
   $mysql->query_no_result($query);
 }
 

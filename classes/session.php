@@ -13,7 +13,7 @@ class session {
       return;
     }
 
-    $query = "SELECT password FROM peq_admin WHERE login=\"$login\"";
+    $query = "SELECT `password` FROM `peq_admin` WHERE `login`=\"$login\"";
     $result = $mysql->query_assoc($query);
     if ($result == '') {
       $_SESSION['error'] = 1;
@@ -22,9 +22,11 @@ class session {
     }
     extract($result);
     
-    if ($password == md5($pw)) {
-      $_SESSION['login'] = $login;
-      $_SESSION['password'] = md5($pw);
+	if ($password == md5($pw)) {
+		$_SESSION['login'] = $login;
+		$_SESSION['password'] = md5($pw);
+		$log = sprintf("User Logged In: Username: %s, Password: '*****', IP: %s", $login, getIP());
+		logSQL($log);
     }
     else {
       $_SESSION['error'] = 1;
@@ -41,7 +43,7 @@ class session {
 
     $login = $_SESSION['login'];
     $pw = $_SESSION['password'];
-    $query = "SELECT password FROM peq_admin WHERE login=\"$login\"";
+    $query = "SELECT `password` FROM `peq_admin` WHERE `login`=\"$login\"";
     $result = $mysql->query_assoc($query);
 
     if ($result == '') {
@@ -65,7 +67,7 @@ class session {
 
     $login = $_SESSION['login'];
     $pw = $_SESSION['password'];
-    $query = "SELECT password FROM peq_admin WHERE login=\"$login\"";
+    $query = "SELECT `password` FROM `peq_admin` WHERE `login`=\"$login\"";
     $result = $mysql->query_assoc($query);
 
     if ($result == '') {
@@ -89,7 +91,7 @@ class session {
 
     $login = $_SESSION['login'];
     $pw = $_SESSION['password'];
-    $query = "SELECT administrator FROM peq_admin WHERE login=\"$login\"";
+    $query = "SELECT `administrator` FROM `peq_admin` WHERE `login`=\"$login\"";
     $result = $mysql->query_assoc($query);
     extract($result);
     

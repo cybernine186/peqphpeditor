@@ -7,10 +7,12 @@ function logSQL ($query) {
   if (isset($_SESSION['guest']) && ($_SESSION['guest'] == 1)) {
     $user = 'Guest';
   }
+  
+  $log = sprintf("%s, %s, %s, %s, %s", date('Y-m-d'), date('G:i:s'), $user, getIP(), $query);
 
   if ($logging == 1) {
     checkLogDir();
-    $time = date("(j-M-y  G:i:s)");
+	
     if (!is_writable($log_file)) {
       $handle = fopen($log_file, 'w') or die("Could not create $log_file! Make sure the logs directory is writeable by your webserver.");
     }
@@ -18,7 +20,7 @@ function logSQL ($query) {
       echo "Unable to open the log file ($log_file)! Make sure the file is readable by your webserver.";
       exit;
     }
-    if (!fwrite($handle, "$query; -- $user $time\r\n")) {
+    if (!fwrite($handle, "$query; -- $log\r\n")) {
       echo "Could not write to the log file ($log_file)! Make sure the file is writeable by your webserver.";
       exit;
     }

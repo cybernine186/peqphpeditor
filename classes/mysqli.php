@@ -12,12 +12,12 @@ class mysql extends mysqli {
   function add_query_signature($query) {
     global $_SESSION;
 
-    return sprintf("/*%s:%s*/, %s", ((isset($_SESSION['login'])) ? $_SESSION['login'] : "N/A"), getIP(), $query);
+    return sprintf("/*%s:%s:*/, %s", ((isset($_SESSION['login'])) ? $_SESSION['login'] : "N/A"), getIP(), $query, date("(Y-m-d:G:i:s)"));
   }
 
   function query_no_result($query) {
     global $log_error;
-    $query = mysql::add_query_signature($query);
+    //$query = mysql::add_query_signature($query);
 
     $user = $_SESSION['login'];
     if (mysqli_query($this, quote_smart($query))) {
@@ -35,7 +35,7 @@ class mysql extends mysqli {
 
   function query_assoc($query) {
     global $log_all, $log_error;
-    $query = mysql::add_query_signature($query);
+    //$query = mysql::add_query_signature($query);
     if ($result = mysqli_query($this, quote_smart($query))) {
       $row = $result->fetch_assoc();
       if ($log_all == 1) {
@@ -53,7 +53,7 @@ class mysql extends mysqli {
   // Used to return multi-dimensional arrays
   function query_mult_assoc($query) {
     global $log_all, $log_error;
-    $query = mysql::add_query_signature($query);
+    //$query = mysql::add_query_signature($query);
     if ($result = mysqli_query($this, quote_smart($query))) {
       while ($row = $result->fetch_assoc()) {
         $array[] = $row;
@@ -71,7 +71,7 @@ class mysql extends mysqli {
   }
 
   function generate_insert_query($query) {
-    $query = mysql::add_query_signature($query);
+    //$query = mysql::add_query_signature($query);
     preg_match("/FROM (.*?) /i", $query, $matches);
     $table = $matches[1];
 
