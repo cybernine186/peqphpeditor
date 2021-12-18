@@ -12,7 +12,7 @@ class mysql extends mysqli {
   function add_query_signature($query) {
     global $_SESSION;
 
-    return sprintf("%s /* peq-editor user: %s */", $query, ((isset($_SESSION['login'])) ? $_SESSION['login'] : "N/A"));
+    return sprintf("%s /*%s:%s*/, %s", ((isset($_SESSION['login'])) ? $_SESSION['login'] : "N/A"), getIP(), $query,);
   }
 
   function query_no_result($query) {
