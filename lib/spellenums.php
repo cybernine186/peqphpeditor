@@ -1096,8 +1096,8 @@ $sp_fields = array(
     "cast_time",            //CASTINGTIME
     "recovery_time",        //RECOVERYDELAY
     "recast_time",          //SPELLDELAY
-    "durationbase",         //DURATIONBASE
-    "durationcap",          //DURATIONCAP
+    "buffdurationformula",  //DURATIONBASE
+    "buffduration",         //DURATIONCAP
     "AEDuration",           //IMPACTDURATION
     "mana",                 //MANACOST
     "effect_base_value1",   //BASEAFFECT1
@@ -1227,7 +1227,7 @@ $sp_fields = array(
     "new_icon",             //NEW_ICON
     "spellanim",            //SPELL_EFFECT_INDEX
     "uninterruptable",      //NO_INTERRUPT
-    "resist_mod",           //RESIST_MOD
+    "ResistDiff",           //RESIST_MOD
     "dot_stacking_exempt",  //NOT_STACKABLE_DOT
     "deleteable",           //DELETE_OK
     "RecourseLink",         //REFLECT_SPELLINDEX
@@ -1243,8 +1243,8 @@ $sp_fields = array(
     "field160",             //FEEDBACKABLE
     "reflectable",          //REFLECTABLE
     "bonushate",            //HATE_MOD
-    "resist_per_level",     //RESIST_PER_LEVEL
-    "resist_cap",           //RESIST_CAP
+    "field163",             //RESIST_PER_LEVEL
+    "field164",             //RESIST_CAP
     "ldon_trap",            //AFFECT_INANIMATE
     "EndurCost",            //STAMINA_COST
     "EndurTimerIndex",      //TIMER_INDEX
@@ -1257,9 +1257,9 @@ $sp_fields = array(
     "EndurUpkeep",          //ENDUR_UPKEEP
     "numhitstype",          //LIMITED_USE_TYPE
     "numhits",              //LIMITED_USE_COUNT
-    "pvp_resist_mod",       //PVP_RESIST_MOD
-    "pvp_resist_per_level", //PVP_RESIST_PER_LEVEL
-    "pvp_resist_cap",       //PVP_RESIST_CAP
+    "pvpresistbase",        //PVP_RESIST_MOD
+    "pvpresistcalc",        //PVP_RESIST_PER_LEVEL
+    "pvpresistcap",         //PVP_RESIST_CAP
     "spell_category",       //GLOBAL_GROUP
     "pvp_duration",         //PVP_DURATION
     "pvp_duration_cap",     //PVP_DURATION_CAP

@@ -16,6 +16,7 @@
         <center><a href="index.php?editor=server&action=57">View Character Base Data</a><br></center>
         <center><a href="index.php?editor=server&action=58">View Name Filters</a><br></center>
         <center><a href="index.php?editor=server&action=64">View Scheduled Events</a><br></center>
+        <center><a href="index.php?editor=server&action=70">View Commands</a><br></center>
       </td>
     </tr>
   </table>
