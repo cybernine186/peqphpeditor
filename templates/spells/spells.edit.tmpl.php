@@ -116,21 +116,11 @@
                 </td>
               </tr>
               <tr>
-                <td>Buff Duration Cap:<br><input type="text" name="durationcap" size="10" value="<?=$durationcap?>"></td>
-                <td>Buff Duration:<br>
-                  <select name="durationbase" style="width:265px;">
+                <td>Buff Duration:<br><input type="text" name="buffduration" size="10" value="<?=$buffduration?>"></td>
+                <td>Buff Duration Formula:<br>
+                  <select name="buffdurationformula" style="width:265px;">
 <?foreach($buffformulas as $k => $v):?>
-                    <option value="<?=$k?>"<? echo ($k == $durationbase) ? " selected" : ""?>><?=$k?>: <?=$v?></option>
-<?endforeach;?>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>PVP Duration Cap:<br><input type="text" name="pvp_duration_cap" size="10" value="<?=$pvp_duration_cap?>"></td>
-                <td>PVP Duration:<br>
-                  <select name="pvp_duration" style="width:265px;">
-<?foreach($buffformulas as $k => $v):?>
-                    <option value="<?=$k?>"<? echo ($k == $pvp_duration) ? " selected" : ""?>><?=$k?>: <?=$v?></option>
+                    <option value="<?=$k?>"<? echo ($k == $buffdurationformula) ? " selected" : ""?>><?=$k?>: <?=$v?></option>
 <?endforeach;?>
                   </select>
                 </td>
@@ -318,7 +308,7 @@
                 <td>Recast Time (ms):<br><input type="text" name="recast_time" size="5" value="<?=$recast_time?>"></td>
                 <td>AE Duration (ms):<br><input type="text" name="AEDuration" size="5" value="<?=$AEDuration?>"></td>
                 <td>Base Difficulty:<br><input type="text" name="basediff" size="5" value="<?=$basediff?>"></td>
-                <td>Song Cap:<br><input type="text" name="songcap" value="<?=$songcap?>" size="5"></td>
+                <td>Resist Difficulty:<br><input type="text" name="ResistDiff" size="5" value="<?=$ResistDiff?>"></td>
                 <td>Endurance Cost:<br><input type="text" name="EndurCost" size="5" value="<?=$EndurCost?>"></td>
               </tr>
               <tr>
@@ -330,12 +320,12 @@
                 <td width="16%">NumHits Type:<br><input type="text" name="numhitstype" value="<?=$numhitstype?>" size="5"></td>
               </tr>
               <tr>
-                <td width="17%">Resist Mod:<br><input type="text" name="resist_mod" value="<?=$resist_mod?>" size="5"></td>
-                <td width="17%">Resist Per Level:<br><input type="text" name="resist_per_level" value="<?=$pvp_resist_per_level?>" size="5"></td>
-                <td width="16%">Resist Cap:<br><input type="text" name="resist_cap" value="<?=$pvp_resist_cap?>" size="5"></td>
-                <td width="17%">PVP Resist Mod:<br><input type="text" name="pvp_resist_mod" value="<?=$pvp_resist_mod?>" size="5"></td>
-                <td width="17%">PVP Resist Per Level:<br><input type="text" name="pvp_resist_per_level" value="<?=$pvp_resist_per_level?>" size="5"></td>
-                <td width="16%">PVP Resist Cap:<br><input type="text" name="pvp_resist_cap" value="<?=$pvp_resist_cap?>" size="5"></td>
+                <td width="17%">PVP Resist Base:<br><input type="text" name="pvpresistbase" value="<?=$pvpresistbase?>" size="5"></td>
+                <td width="17%">PVP Resist Calc:<br><input type="text" name="pvpresistcalc" value="<?=$pvpresistcalc?>" size="5"></td>
+                <td width="16%">PVP Resist Cap:<br><input type="text" name="pvpresistcap" value="<?=$pvpresistcap?>" size="5"></td>
+                <td width="17%">PVP Duration:<br><input type="text" name="pvp_duration" value="<?=$pvp_duration?>" size="5"></td>
+                <td width="16%">PVP Duration Cap:<br><input type="text" name="pvp_duration_cap" value="<?=$pvp_duration_cap?>" size="5"></td>
+                <td width="17%">Song Cap:<br><input type="text" name="songcap" value="<?=$songcap?>" size="5"></td>
               </tr>
               <tr>
                 <td width="17%">Cone Start Angle:<br><input type="text" name="ConeStartAngle" value="<?=$ConeStartAngle?>" size="5"></td>
