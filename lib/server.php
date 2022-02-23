@@ -647,6 +647,23 @@ switch ($action) {
     delete_scheduled_event($_GET['id']);
     header("Location: index.php?editor=server&action=64");
     exit;
+  case 70: // View Commands
+    check_admin_authorization();
+    $breadcrumbs .= " >> Commands";
+    $body = new Template("templates/server/commands.tmpl.php");
+    $commands = get_commands();
+    if ($commands) {
+      foreach ($commands as $key=>$value) {
+        $body->set($key, $value);
+       }
+     }
+    break;
+  case 71: // Add Command
+	break;
+  case 72: // Edit Command
+	break;
+  case 73: // Delete Command
+	break;
 }
 
 function get_open_bugs($page_number, $results_per_page, $sort_by) {
@@ -1550,5 +1567,18 @@ function suggest_scheduled_event_id() {
   $result = $mysql->query_assoc($query);
 
   return $result['id'] + 1;
+}
+
+function get_commands() {
+  global $mysql;
+
+  $query = "SELECT * FROM `command_settings` ORDER BY `command` ASC";
+  $result = $mysql->query_mult_assoc($query);
+  if ($result) {
+    foreach ($result as $result) {
+      $array['commands'][$result['command']] = array("command"=>$result['command'], "aliases"=>$result['aliases'], "access"=>$result['access']);
+    }
+  }
+  return $array;
 }
 ?>
