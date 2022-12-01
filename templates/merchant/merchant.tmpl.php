@@ -26,6 +26,7 @@
           <th>&nbsp;</th>
           <th>Buy<br>Price</th>
           <th>Sell<br>Price</th>
+          <th>LDoN<br>Price</th>
           <th>Fact<br>Req</th>
           <th>Lvl<br>Req</th>
           <th>Alt<br>Cur</th>
@@ -100,6 +101,7 @@ $round_sells = round($sells,3);
             cp
 <?endif;?>
           </td>
+          <td align="center"><?=$v['ldonprice']?></td>
           <td align="center"><?=$v['faction_required']?></td>
           <td align="center"><?=$v['level_required']?></td>
           <td align="center"><?=$v['alt_currency_cost']?></td>
@@ -108,7 +110,8 @@ $round_sells = round($sells,3);
           <td align="center"><?echo (($v['min_expansion'] > 0) || ($v['max_expansion'] > 0)) ? "Y" : "N";?></td>
           <td align="center"><?echo (($v['content_flags'] != "") || ($v['content_flags_disabled'] != "")) ? "Y" : "N";?></td>
           <td align="right" style="padding-right: 10px;">
-            <a href="index.php?editor=merchant&z=<?=$currzone?>&zoneid=<?=$currzoneid?>&npcid=<?=$npcid?>&mid=<?=$id?>&slot=<?=$slot?>&id=<?=$v['item']?>&action=1"><img src="images/c_table.gif" border="0" title="Edit this Item"></a>&nbsp;
+            <a href="index.php?editor=items&z=<?=$currzone?>&id=<?=$v['item']?>&action=2"><img src="images/c_table.gif" border="0" title="Edit this Item"></a>&nbsp;
+			<a href="index.php?editor=merchant&z=<?=$currzone?>&zoneid=<?=$currzoneid?>&npcid=<?=$npcid?>&mid=<?=$id?>&slot=<?=$slot?>&id=<?=$v['item']?>&action=1"><img src="images/c_table.gif" border="0" title="Edit Merchant Item"></a>&nbsp;
             <a href="index.php?editor=merchant&z=<?=$currzone?>&zoneid=<?=$currzoneid?>&npcid=<?=$npcid?>&mid=<?=$id?>&slot=<?=$slot?>&id=<?=$v['item']?>&action=3" onClick="return confirm('Really remove this item from the merchant?');"><img src="images/remove.gif" border="0" title="Delete item from Merchantlist"></a>
           </td>
         </tr>

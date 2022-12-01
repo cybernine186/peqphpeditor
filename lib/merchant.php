@@ -186,12 +186,12 @@ function get_merchantlist() {
       $array['slots'][$result['slot']] = array("item"=>$result['item'], "item_name"=>$result['item_name'], "faction_required"=>$result['faction_required'], "level_required"=>$result['level_required'], "alt_currency_cost"=>$result['alt_currency_cost'], "classes_required"=>$result['classes_required'], "probability"=>$result['probability'], "min_expansion"=>$result['min_expansion'], "max_expansion"=>$result['max_expansion'], "content_flags"=>$result['content_flags'], "content_flags_disabled"=>$result['content_flags_disabled']);
     }
   }
-  $query = "SELECT m.merchantid, m.slot, m.item, i.price, i.sellrate, m.faction_required, m.level_required, m.alt_currency_cost, m.classes_required, m.probability, m.min_expansion, m.max_expansion, m.content_flags, m.content_flags_disabled FROM merchantlist AS m, items AS i WHERE i.id=m.item AND merchantid=$mid";
+  $query = "SELECT m.merchantid, m.slot, m.item, i.price, i.ldonprice, i.sellrate, m.faction_required, m.level_required, m.alt_currency_cost, m.classes_required, m.probability, m.min_expansion, m.max_expansion, m.content_flags, m.content_flags_disabled FROM merchantlist AS m, items AS i WHERE i.id=m.item AND merchantid=$mid";
   $results = $mysql_content_db->query_mult_assoc($query);
   if ($results) {
       foreach ($results as $result) {
           $result['item_name'] = get_item_name($result['item']);
-          $array['slots'][$result['slot']] = array("item"=>$result['item'], "item_name"=>$result['item_name'], "price"=>$result['price'], "sellrate"=>$result['sellrate'], "faction_required"=>$result['faction_required'], "level_required"=>$result['level_required'], "alt_currency_cost"=>$result['alt_currency_cost'], "classes_required"=>$result['classes_required'], "probability"=>$result['probability'], "min_expansion"=>$result['min_expansion'], "max_expansion"=>$result['max_expansion'], "content_flags"=>$result['content_flags'], "content_flags_disabled"=>$result['content_flags_disabled']);
+          $array['slots'][$result['slot']] = array("item"=>$result['item'], "item_name"=>$result['item_name'], "price"=>$result['price'], "sellrate"=>$result['sellrate'], "ldonprice"=>$result['ldonprice'], "faction_required"=>$result['faction_required'], "level_required"=>$result['level_required'], "alt_currency_cost"=>$result['alt_currency_cost'], "classes_required"=>$result['classes_required'], "probability"=>$result['probability'], "min_expansion"=>$result['min_expansion'], "max_expansion"=>$result['max_expansion'], "content_flags"=>$result['content_flags'], "content_flags_disabled"=>$result['content_flags_disabled']);
         }
   }
 
